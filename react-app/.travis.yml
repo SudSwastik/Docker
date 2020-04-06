@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - cd react-app
+  - docker build -t SudSwastik/react-app -f Dockerfile.dev .
+
+script:
+  - docker run SudSwastik/react-app npm run test -- --coverage
